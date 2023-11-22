@@ -206,3 +206,44 @@ print("### PONTEIRO ###\n");
 print("Não tem PONTEIRO \n");
 print(" Não é necessário liberar memória manualmente, como em C ou C++. A variável será automaticamente coletada pelo coletor de lixo quando não estiver mais em uso. \n");
 print("\n");
+
+// TRY CATCH
+print("### TRY CATCH ###\n");
+print("Informe o valor 1 para o dividendo: ", terminator: "")
+let numero1 = Int(readLine()!)!
+
+print("Informe o valor 2 para o divisor: ", terminator: "")
+let numero2 = Int(readLine()!)!
+
+do {
+    if numero2 == 0 {
+        throw NSError(domain: "Divisão por zero não é permitida!", code: 1, userInfo: nil)
+    }
+
+    let resultado = numero1 / numero2
+    print(String(format: "Resultado da divisão: %.2f", resultado))
+} catch {
+    print("Ocorreu uma exceção: \(error.localizedDescription)")
+}
+print("\n");
+
+// ENUM
+print("### ENUM ###\n");
+enum Cor {
+    case Vermelho, Verde, Azul, Amarelo, Laranja
+}
+
+let minhaCor: Cor = .Azul
+
+switch minhaCor {
+case .Vermelho:
+    print("Minha cor favorita é vermelho.")
+case .Verde:
+    print("Minha cor favorita é verde.")
+case .Azul:
+    print("Minha cor favorita é azul.")
+case .Amarelo:
+    print("Minha cor favorita é amarelo.")
+case .Laranja:
+    print("Minha cor favorita é laranja.")
+}
